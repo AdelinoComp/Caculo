@@ -19,58 +19,58 @@ double quociente(double x) { return log(x) / (x * x + 1); }
 
 // Função para calcular a derivada numericamente
 double calcularDerivada(double (*funcao)(double), double x, double h) {
-  return (funcao(x + h) - funcao(x)) / h;
+ return (funcao(x + h) - funcao(x)) / h;
 }
 
 int main() {
-  double x, h;
+ double x, h;
 
-  // Solicita ao usuário a função desejada
-  printf("Escolha a função para calcular a derivada:\n");
-  printf(
-      "1 - Polinomial\n2 - Exponencial\n3 - Trigonométrica\n4 - Logarítmica\n");
-  printf("5 - Regra do Produto\n6 - Regra do Quociente\n");
-  int escolha;
-  scanf("%d", &escolha);
+ // Solicita ao usuário a função desejada
+ printf("Escolha a função para calcular a derivada:\n");
+ printf(
+   "1 - Polinomial\n2 - Exponencial\n3 - Trigonométrica\n4 - Logarítmica\n");
+ printf("5 - Regra do Produto\n6 - Regra do Quociente\n");
+ int escolha;
+ scanf("%d", &escolha);
 
-  // Solicita o valor de x e o passo h
-  printf("Digite o valor de x e o passo h: ");
-  scanf("%lf %lf", &x, &h);
+ // Solicita o valor de x e o passo h
+ printf("Digite o valor de x e o passo h: ");
+ scanf("%lf %lf", &x, &h);
 
-  // Imprime um cabeçalho
-  printf("| Escolha | Função | Valor de x | Valor de h | Derivada |");
-  printf("|---|---|---|---|---|\n");
+ // Imprime um cabeçalho
+ printf("| Escolha | Função | Valor de x | Valor de h | Derivada |");
+ printf("|---|---|---|---|---|\n");
 
-  // Calcula a derivada
-  switch (escolha) {
-  case 1:
-    printf("| %2d | Polinomial | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(polinomial, x, h));
-    break;
-  case 2:
-    printf("| %2d | Exponencial | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(exponencial, x, h));
-    break;
-  case 3:
-    printf("| %2d | Trigonométrica | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(trigonometrica, x, h));
-    break;
-  case 4:
-    printf("| %2d | Logarítmica | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(logaritmica, x, h));
-    break;
-  case 5:
-    printf("| %2d | Regra do Produto | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(produto, x, h));
-    break;
-  case 6:
-    printf("| %2d | Regra do Quociente | %.2f | %.2f | %.2f |\n", escolha, x, h,
-           calcularDerivada(quociente, x, h));
-    break;
-  default:
-    printf("Escolha inválida.\n");
-    return 1;
-  }
+ // Calcula a derivada
+ switch (escolha) {
+ case 1:
+  printf("| %2d | Polinomial | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(polinomial, x, h));
+  break;
+ case 2:
+  printf("| %2d | Exponencial | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(exponencial, x, h));
+  break;
+ case 3:
+  printf("| %2d | Trigonométrica | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(trigonometrica, x, h));
+  break;
+ case 4:
+  printf("| %2d | Logarítmica | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(logaritmica, x, h));
+  break;
+ case 5:
+  printf("| %2d | Regra do Produto | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(produto, x, h));
+  break;
+ case 6:
+  printf("| %2d | Regra do Quociente | %.2f | %.2f | %.2f |\n", escolha, x, h,
+      calcularDerivada(quociente, x, h));
+  break;
+ default:
+  printf("Escolha inválida.\n");
+  return 1;
+ }
 
-  return 0;
+ return 0;
 }
