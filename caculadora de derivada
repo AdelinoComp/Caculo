@@ -53,3 +53,51 @@
 </body>
 </html>
 
+
+
+
+// Função para calcular a derivada de uma expressão
+function calcularDerivada(expressao, variavel, ponto) {
+  try {
+    // Parse da expressão usando a biblioteca Math.js
+    const parsedExpression = math.parse(expressao);
+
+    // Calcula a derivada em relação à variável especificada
+    const derivada = math.derivative(parsedExpression, variavel);
+
+    // Avalia a derivada no ponto especificado
+    const resultado = derivada.evaluate({ [variavel]: ponto });
+    return resultado;
+  } catch (error) {
+    console.error("Erro ao calcular a derivada:", error);
+    return NaN;
+  }
+}
+
+// Exemplos
+const pontoDeInteresse = 2;
+
+// 1) Polinomial
+const derivadaPolinomial = calcularDerivada('2*x^3 - 3*x^2 + 1', 'x', pontoDeInteresse);
+console.log("Derivada Polinomial:", derivadaPolinomial);
+
+// 2) Exponencial
+const derivadaExponencial = calcularDerivada('2 * exp(3*x)', 'x', pontoDeInteresse);
+console.log("Derivada Exponencial:", derivadaExponencial);
+
+// 3) Trigonométrica (seno)
+const derivadaTrigonometrica = calcularDerivada('sin(x)', 'x', pontoDeInteresse);
+console.log("Derivada Trigonométrica:", derivadaTrigonometrica);
+
+// 4) Logarítmica
+const derivadaLogaritmica = calcularDerivada('log(x) / log(2)', 'x', pontoDeInteresse);
+console.log("Derivada Logarítmica:", derivadaLogaritmica);
+
+// 5) Regra do Produto
+const derivadaProduto = calcularDerivada('sin(x) * log(x) / log(2)', 'x', pontoDeInteresse);
+console.log("Derivada Regra do Produto:", derivadaProduto);
+
+// 6) Regra do Quociente
+const derivadaQuociente = calcularDerivada('sin(x) / (log(x) / log(2))', 'x', pontoDeInteresse);
+console.log("Derivada Regra do Quociente:", derivadaQuociente);
+
